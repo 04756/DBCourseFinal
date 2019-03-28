@@ -7,6 +7,7 @@ import java.sql.*;
 public class DAOBase implements DAO
 {
     private static ComboPooledDataSource ds=null;
+
     static
     {
         try
@@ -19,10 +20,12 @@ public class DAOBase implements DAO
             e.printStackTrace();
         }
     }
+
     public Connection getConn() throws SQLException
     {
             return ds.getConnection();
     }
+
     public void closeConn(Connection conn, Statement stmt, PreparedStatement ps, ResultSet rs)
     {
         try
